@@ -2,19 +2,19 @@ class LasVegasEvent::CLI
 
   def call
     welcome
-    list_deals
+    list_events
     search
   end
 
   def welcome
-    puts "Welcome to Offer Up where you can find a tresure in your area!"
+    puts "Welcome to Las Vegas Event Calender where you can find the best events in Las Vegas!"
   end
 
-  def list_deals
-    puts "Specil deals"
-    @deals = OfferUp::Scraper.listing
-    @deals.each.with_index do |deal, i|
-      puts "#{i}. #{deal.name} - #{deal.price} - #{deal.area}"
+  def list_events
+    puts "Specil events"
+    @events = LasVegasEvent::Scraper.listing
+    @events.each.with_index do |event, i|
+      puts "#{i}. #{events.name} - #{events.date_time} - #{events.price} - #{events.location}"
     end
   end
 
@@ -26,13 +26,13 @@ class LasVegasEvent::CLI
 
       if input.to_i > 0
         # the_deal = @deals[input.to_i-1]
-        puts "#{i}. #{deal.name} - #{deal.price} - #{deal.area}"
+        puts "#{i}. #{deal.name} - #{events.date_time} - #{events.price} - #{events.location}"
       elsif input == "list"
         list_deals
       elsif input == "exit"
         goodbye
       else
-        puts "The item can not be found. Type again or exit."
+        puts "The event can not be found. Type again or exit."
       end
     end
   end
@@ -40,7 +40,7 @@ class LasVegasEvent::CLI
   def goodbye
     input = nil
     if input = "exit"
-      puts "Thank you for shopping with us. See you again!"
+      puts "Thank you for visiting with us. See you again!"
     end
   end
 

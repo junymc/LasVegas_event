@@ -1,6 +1,11 @@
-require "LasVegas_event/version"
+#my environment
 
-module LasVegasEvent
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
+
+
+require_relative 'LasVegas_event/cli'
+require_relative 'LasVegas_event/scraper'
+require_relative 'LasVegas_event/offer_up'
+require_relative "LasVegas_event/version"

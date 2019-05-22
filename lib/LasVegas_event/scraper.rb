@@ -16,6 +16,7 @@ class LasVegasEvent::Scraper
     #doc.css("div#db-item-list").css("div").first.css("a").first.css("img").first["alt"] -> getting container
 binding.pry
      name = doc.css("h1.timely-event-title").text.gsub("\n\t\t\t\t\t\t\t\t\t\t", "")
+     date_time = doc.css("").text
 
     # doc.css("div#db-item-list").css("div").collect do |cards|
     #   cards.css("a").collect do |card|
