@@ -21,3 +21,5 @@ class LasVegasEvent::Deal
   def self.all
     @@all
   end
+
+end

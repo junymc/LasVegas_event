@@ -15,8 +15,10 @@ class LasVegasEvent::Scraper
     #for every first we call there we have to iterate for each one
     #doc.css("div#db-item-list").css("div").first.css("a").first.css("img").first["alt"] -> getting container
 binding.pry
-     name = doc.css("h1.timely-event-title").text.gsub("\n\t\t\t\t\t\t\t\t\t\t", "")
-     date_time = doc.css("").text
+    #  name = doc.css("h1.timely-event-title").text.strip
+    #  date_time = date_time = doc.css("span.timely-column-right").text.strip
+    #  location = doc.css("span.timely-venue-name").text
+    #
 
     # doc.css("div#db-item-list").css("div").collect do |cards|
     #   cards.css("a").collect do |card|
