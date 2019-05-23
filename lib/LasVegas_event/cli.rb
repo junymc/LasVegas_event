@@ -2,6 +2,7 @@ class LasVegasEvent::CLI
 
   def call
     welcome
+    fetch_events
     list_events
     search
   end
@@ -11,13 +12,16 @@ class LasVegasEvent::CLI
   end
 
   def fetch_events
-    LasVegasEvent::Scraper.scrape_events_list("https://events.lasvegascalendars.com/")
+    LasVegasEvent::Scraper.scrape_events_list
   end
 
   def list_events
     puts "Special events"
+
+
     LasVegasEvent::Deal.all.each.with_index(1) do |event, i|
-      puts "#{i}. #{name} - #{date_time} - #{location}"
+
+      puts "#{i}. #{event.name} - #{event.date_time} - #{event.location}"
     end
   end
 
@@ -37,7 +41,7 @@ class LasVegasEvent::CLI
       if input.to_i > 0
         # the_deal = @deals[input.to_i-1]
         list_events
-        events_description
+        events_description(input.to_i)
       elsif input == "list"
         list_events
       elsif input == "exit"
