@@ -25,7 +25,7 @@ class LasVegasEvent::CLI
   def events_description(i)
     puts "More information for the event"
     description = LasVegasEvent::Deal.all[i - 1]
-    puts "#{description.events_description}"
+    puts "#{description.events_description[i]}"
 
   end
 
@@ -36,7 +36,7 @@ class LasVegasEvent::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        list_events[i]
+        list_events
       elsif input == "description"
         events_description(input.to_i)
       elsif input == "list"
