@@ -21,7 +21,7 @@ class LasVegasEvent::Scraper
      doc = Nokogiri::HTML(open("https://events.lasvegascalendars.com/"))
 
         doc.css("div.timely-events-container").css("a.timely-event timely-today").each do |timely|
-          binding.pry
+          # binding.pry
           name = timely.css("span.timely-title-text").text
           date_time = timely.css("span.timely-start-time").text.strip
           location = timely.css("span.timely-venue").text.strip

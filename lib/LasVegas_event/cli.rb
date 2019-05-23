@@ -10,17 +10,20 @@ class LasVegasEvent::CLI
     puts "Welcome to Las Vegas Event Calender where you can find the best events in Las Vegas!"
   end
 
+  def fetch_events
+    LasVegasEvent::Scraper.scrape_events_list("https://events.lasvegascalendars.com/")
+  end
+
   def list_events
     puts "Special events"
-    events = LasVegasEvent::Deal.all
-    events.each.with_index do |event, i|
+    LasVegasEvent::Deal.all.each.with_index(1) do |event, i|
       puts "#{i}. #{name} - #{date_time} - #{location}"
     end
   end
 
-  def events_description
+  def events_description(i)
     puts "More information for the event"
-    description = LasVegasEvent::Deal.all[index - 1]
+    description = LasVegasEvent::Deal.all[i - 1]
     puts "#{description.events_description}"
 
   end
@@ -33,8 +36,8 @@ class LasVegasEvent::CLI
 
       if input.to_i > 0
         # the_deal = @deals[input.to_i-1]
-        puts "#{i}. #{name} - #{date_time} - #{location}"
-        puts events_description
+        list_events
+        events_description
       elsif input == "list"
         list_events
       elsif input == "exit"
