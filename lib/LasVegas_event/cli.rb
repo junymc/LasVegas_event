@@ -11,15 +11,22 @@ class LasVegasEvent::CLI
   end
 
   def list_events
-    puts "Specil events"
-    events = LasVegasEvent::Scraper.listing
+    puts "Special events"
+    events = LasVegasEvent::Deal.all
     events.each.with_index do |event, i|
       puts "#{i}. #{name} - #{date_time} - #{location}"
     end
   end
 
+  def events_description
+    puts "More information for the event"
+    description = LasVegasEvent::Deal.all[index - 1]
+    puts "#{description.events_description}"
+
+  end
+
   def search
-    puts "What are you looking for today?"
+    puts "Which event do you want to know more about? Type the number of event."
     input = nil
     while input != "exit"
       input = gets.strip.downcase
@@ -27,6 +34,7 @@ class LasVegasEvent::CLI
       if input.to_i > 0
         # the_deal = @deals[input.to_i-1]
         puts "#{i}. #{name} - #{date_time} - #{location}"
+        puts events_description
       elsif input == "list"
         list_events
       elsif input == "exit"
