@@ -14,7 +14,7 @@ class LasVegasEvent::CLI
     puts "Specil events"
     events = LasVegasEvent::Scraper.listing
     events.each.with_index do |event, i|
-      puts "#{i}. #{name} - #{date_time} - #{price} - #{location}"
+      puts "#{i}. #{name} - #{date_time} - #{location}"
     end
   end
 
@@ -26,9 +26,9 @@ class LasVegasEvent::CLI
 
       if input.to_i > 0
         # the_deal = @deals[input.to_i-1]
-        puts "#{i}. #{name} - #{date_time} - #{price} - #{location}"
+        puts "#{i}. #{name} - #{date_time} - #{location}"
       elsif input == "list"
-        list_deals
+        list_events
       elsif input == "exit"
         goodbye
       else
