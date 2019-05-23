@@ -25,7 +25,7 @@ class LasVegasEvent::CLI
   def events_description(i)
     puts "More information for the event"
     description = LasVegasEvent::Deal.all[i - 1]
-    puts "#{description.events_description[i]}"
+    puts "#{description.events_description}"
 
   end
 
