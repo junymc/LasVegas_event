@@ -17,10 +17,7 @@ class LasVegasEvent::CLI
 
   def list_events
     puts "Special events"
-
-
     LasVegasEvent::Deal.all.each.with_index(1) do |event, i|
-
       puts "#{i}. #{event.name} - #{event.date_time} - #{event.location}"
     end
   end
@@ -39,8 +36,8 @@ class LasVegasEvent::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        # the_deal = @deals[input.to_i-1]
-        list_events
+        list_events[i]
+      elsif input == "description"
         events_description(input.to_i)
       elsif input == "list"
         list_events

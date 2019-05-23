@@ -7,8 +7,8 @@ class LasVegasEvent::Deal
 
   def initialize(name, date_time, location, events_description=nil)
   @name = name
-  @location = location
   @date_time = date_time
+  @location = location
   @events_description = events_description
   save
   end
