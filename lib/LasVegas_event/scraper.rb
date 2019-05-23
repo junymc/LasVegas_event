@@ -11,11 +11,11 @@ class LasVegasEvent::Scraper
   def self.scrape_events
     doc = Nokogiri::HTML(open("https://events.lasvegascalendars.com/?event=28054955&instance=20190521130000"))
     #doc.css("div#db-item-list").css("div").first.css("a").first.css("img").first["alt"] -> getting container
-# binding.pry
+binding.pry
      name = doc.css("h1.timely-event-title").text.strip
      date_time = date_time = doc.css("span.timely-column-right").text.strip
      location = doc.css("span.timely-venue-name").text
-    #  price
+    #  price = doc.css("div.timely-details timely-clearfixr").css("div").first
 
   end
 end
