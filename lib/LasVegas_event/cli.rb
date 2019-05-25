@@ -35,12 +35,12 @@ class LasVegasEvent::CLI
     while input != "exit"
       input = gets.strip.downcase
 
-      if input.to_i > 0
-        list_events
-      elsif input == "description"
-        events_description(input.to_i)
+      if input.to_i > 0 && input.to_i <= 99
+          event = LasVegasEvent::Deal.all[input.to_i-1]
+            puts "#{event.name} - #{event.date_time} - #{event.location}"
+            puts event.events_description
       elsif input == "list"
-        list_events
+              list_events
       elsif input == "exit"
         goodbye
       else
