@@ -16,7 +16,7 @@ class LasVegasEvent::CLI
   end
 
   def list_events
-    puts "Special events list".red
+    puts "Special events list".yellow
     LasVegasEvent::Deal.all.each.with_index(1) do |event, i|
       puts "#{i}. #{event.name} - #{event.date_time} - #{event.location}".light_blue
     end
@@ -37,7 +37,8 @@ class LasVegasEvent::CLI
       elsif input == "exit"
         goodbye
       else
-        puts "The event can not be found. Type again or exit.".green
+        puts "The event can not be found.".red
+        puts "Type again or exit.".green
       end
     end
   end
@@ -45,7 +46,7 @@ class LasVegasEvent::CLI
   def goodbye
     input = nil
     if input = "exit"
-      puts "Thank you for visiting with us. See you again!".green
+      puts "Thank you for visiting us. See you again!".green
     end
   end
 
