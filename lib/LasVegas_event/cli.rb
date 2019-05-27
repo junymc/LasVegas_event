@@ -22,7 +22,7 @@ class LasVegasEvent::CLI
     puts "|Special events list|".yellow
     puts "---------------------"
     LasVegasEvent::Deal.all.each.with_index(1) do |event, i|
-      puts "#{i}. #{event.name} - #{event.date_time} - #{event.location}".light_blue
+      puts "#{i}. #{event.name}".light_blue
     end
   end
 
@@ -35,8 +35,9 @@ class LasVegasEvent::CLI
       if input.to_i > 0 && input.to_i <= 99
           event = LasVegasEvent::Deal.all[input.to_i-1]
             puts "************************************************************************************************"
-            puts "#{event.name} - #{event.date_time} - #{event.location}".light_blue
-            puts event.events_description.yellow
+            puts " #{event.name}".light_blue
+            puts "#{event.date_time} - #{event.location}".cyan
+            puts "#{event.events_description}".yellow
       elsif input == "list"
               list_events
       elsif input == "exit"
@@ -44,7 +45,7 @@ class LasVegasEvent::CLI
       else
         puts "The event can not be found.".red
         puts "---------------------------"
-        puts "** Type again or exit. **".green
+        puts "** Type 'list' to see all the list or select number again. Type 'exit' if you wish to exit. **".green
       end
     end
   end

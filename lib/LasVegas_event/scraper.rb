@@ -7,9 +7,9 @@ class LasVegasEvent::Scraper
         doc.css("div.timely-events-container").css("a.timely-event.timely-today").each do |timely|
 # binding.pry
           name = timely.css("span.timely-title-text").text
-          date_time = timely.css("span.timely-start-time").text.strip
-          location = timely.css("span.timely-venue").text.strip
-          events_description = timely.css("div.timely-description.timely-has-venue").text.strip
+          date_time = timely.css("span.timely-start-time").text.gsub(/\s+/, " ")
+          location = timely.css("span.timely-venue").text.gsub(/\s+/, " ")
+          events_description = timely.css("div.timely-description.timely-has-venue").text.gsub(/\s+/, " ")
           LasVegasEvent::Deal.new(name, date_time, location, events_description)
        end
   end
