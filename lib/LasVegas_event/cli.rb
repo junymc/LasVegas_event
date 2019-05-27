@@ -8,7 +8,7 @@ class LasVegasEvent::CLI
   end
 
   def welcome
-    puts "Welcome to Las Vegas Event Calender where you can find the best events in Las Vegas!".green
+    puts "Welcome to Las Vegas Event Calendar where you can find the best events in Las Vegas!".green
   end
 
   def fetch_events

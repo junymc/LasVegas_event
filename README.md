@@ -1,6 +1,6 @@
 # LasVegasEvent
 
-This app is for the users who is interested in the events in Las Vegas. You can find the name of the show, date/time, location and the price. It shows you the best deal for your event ticket.
+This app is for the users who are interested in events in Las Vegas. You can find the name of the show, date/time, location and the price. It shows you the best deal for your event ticket.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Start the program by running the executable file ./bin/LasVegas_event, you will be greeted with a welcome message and it will show you all the events that is available from today. You will be asked to pick one of the event that you want to know more about. Once you have viewed all the events list, type the number of the event that you are interested in, it will show more details about the event you select including the price deal and different available dates. If you want see more event information, you can type another number anytime. You will be exited out if you type 'exit'. 
+Start the program by running the executable file ./bin/LasVegas_event, you will be greeted with a welcome message and it will show you all the events that is available from today. You will be asked to pick one of the event that you want to know more about. Once you have viewed all the events list, type the number of the event that you are interested in, it will show more details about the event you select including the price deal and different available dates. If you want see more event information, you can type another number anytime. You will be exited out if you type 'exit'.
 
 ## Development
 
