@@ -4,7 +4,7 @@ class LasVegasEvent::CLI
     welcome
     fetch_events
     list_events
-    search
+    details
   end
 
   def welcome
@@ -26,7 +26,7 @@ class LasVegasEvent::CLI
     end
   end
 
-  def search
+  def details
     puts "** Which event do you want to know more about? Type the number of event. **".green
     input = nil
     while input != "exit"
