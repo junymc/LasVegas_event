@@ -8,7 +8,9 @@ class LasVegasEvent::CLI
   end
 
   def welcome
+    puts "===================================================================================="
     puts "Welcome to Las Vegas Event Calendar where you can find the best events in Las Vegas!".green
+    puts "===================================================================================="
   end
 
   def fetch_events
@@ -16,20 +18,23 @@ class LasVegasEvent::CLI
   end
 
   def list_events
-    puts "Special events list".yellow
+    puts "---------------------"
+    puts "|Special events list|".yellow
+    puts "---------------------"
     LasVegasEvent::Deal.all.each.with_index(1) do |event, i|
       puts "#{i}. #{event.name} - #{event.date_time} - #{event.location}".light_blue
     end
   end
 
   def search
-    puts "Which event do you want to know more about? Type the number of event.".green
+    puts "** Which event do you want to know more about? Type the number of event. **".green
     input = nil
     while input != "exit"
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= 99
           event = LasVegasEvent::Deal.all[input.to_i-1]
+            puts "************************************************************************************************"
             puts "#{event.name} - #{event.date_time} - #{event.location}".light_blue
             puts event.events_description.yellow
       elsif input == "list"
@@ -38,7 +43,8 @@ class LasVegasEvent::CLI
         goodbye
       else
         puts "The event can not be found.".red
-        puts "Type again or exit.".green
+        puts "---------------------------"
+        puts "** Type again or exit. **".green
       end
     end
   end
@@ -46,7 +52,9 @@ class LasVegasEvent::CLI
   def goodbye
     input = nil
     if input = "exit"
+      puts "========================================="
       puts "Thank you for visiting us. See you again!".green
+      puts "========================================="
     end
   end
 
