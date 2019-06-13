@@ -2,13 +2,14 @@
 
 class LasVegasEvent::Deal
 
-  attr_accessor :name, :location, :date_time, :events_description
+  attr_accessor :name, :location, :date_time, :events_description, :url
   @@all =[]
 
-  def initialize(name, date_time, location, events_description=nil)
+  def initialize(name, date_time, location, url, events_description=nil)
   @name = name
   @date_time = date_time
   @location = location
+  @url = url
   @events_description = events_description
   save
   end
