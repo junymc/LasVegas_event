@@ -30,7 +30,9 @@ class LasVegasEvent::CLI
   def event_website
     puts "Do you want to check out the event website? Type 'y' or 'n'".green
     input = gets.strip.downcase
+
     if input == "y"
+      LasVegasEvent::Event.all
       puts "#{event.event_webpage}".cyan
     elsif input == "n"
       puts "** Type 'list' to see all the list or select number again. Type 'exit' if you wish to exit. **".green

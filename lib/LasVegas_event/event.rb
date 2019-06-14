@@ -5,7 +5,7 @@ class LasVegasEvent::Event
   attr_accessor :name, :location, :date_time, :url, :events_description, :event_webpage
   @@all =[]
 
-  def initialize(name, date_time, location, url, events_description=nil)
+  def initialize(name, date_time, location, url, events_description=nil, event_webpage)
   @name = name
   @date_time = date_time
   @location = location

@@ -21,6 +21,8 @@ class LasVegasEvent::Scraper
       event_page = Nokogiri::HTML(open(event.url))
       event_webpage = event_page.css("div.timely-event-details-container").css("div.timely-details timely-clearfix").attr("href")
       # event.event_webpage = event_webpage
+
+      LasVegasEvent::Event.new(name, date_time, location, url, events_description, event_webpage)
   end
 
 end
