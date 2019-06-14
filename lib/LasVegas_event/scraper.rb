@@ -4,7 +4,7 @@ class LasVegasEvent::Scraper
 
      doc = Nokogiri::HTML(open("https://events.lasvegascalendars.com/"))
 
-        doc.css("div.timely-events-container").css("a.timely-event").each do |timely|
+        doc.css("div.timely-events-container").css("a.timely-event")[0..9].each do |timely|
 # binding.pry
           name = timely.css("span.timely-title-text").text
           date_time = timely.css("span.timely-start-time").text.gsub(/\s+/, " ")
@@ -19,7 +19,7 @@ class LasVegasEvent::Scraper
   def self.get_url(event)
   binding.pry
       event_page = Nokogiri::HTML(open(event.url))
-      event_webpage = event_page.css("div.a").attr("href")
+      event_webpage = event_page.css("div.timely-event-details-container").css("div.timely-details timely-clearfix").attr("href")
       # event.event_webpage = event_webpage
   end
 
