@@ -30,7 +30,7 @@ class LasVegasEvent::CLI
     puts "Do you want to check out the event website? Type 1 for 'Yes' or 2 for 'No'".green
     input = nil
     if input.to_i = 1
-      LasVegasEvent::Scraper.get_url(event)
+      puts "#{event.event_webpage}".cyan
     elsif input.to_i = 2
       puts "** Type 'list' to see all the list or select number again. Type 'exit' if you wish to exit. **".green
     else
@@ -51,11 +51,10 @@ class LasVegasEvent::CLI
             puts " #{event.name}".light_blue
             puts "#{event.date_time} - #{event.location}".cyan
             puts "#{event.events_description}".yellow
-            puts "#{url}".cyan
+            puts "#{event.url}".cyan
 
-        if input.to_i > 0 && input.to_i <= 99
           event_website
-        end
+
 
       elsif input == "list"
               list_events
