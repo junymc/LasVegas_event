@@ -50,11 +50,10 @@ class LasVegasEvent::CLI
             puts "************************************************************************************************"
             puts " #{event.name}".light_blue
             puts "#{event.date_time} - #{event.location}".cyan
-            puts "#{event.events_description}".yellow
-            puts "#{event.url}".cyan
+            puts "#{event.events_description}\n".yellow
+            puts "#{event.url}\n".cyan
 
           event_website
-
 
       elsif input == "list"
               list_events
