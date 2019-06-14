@@ -20,7 +20,7 @@ class LasVegasEvent::Scraper
   binding.pry
       event_page = Nokogiri::HTML(open(event.url))
       event_webpage = event_page.css("div.a").attr("href")
-      event.event_webpage = event_webpage
+      # event.event_webpage = event_webpage
   end
 
 end
