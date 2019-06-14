@@ -34,7 +34,7 @@ class LasVegasEvent::CLI
     elsif input.to_i = 2
       puts "** Type 'list' to see all the list or select number again. Type 'exit' if you wish to exit. **".green
     else
-      puts "Sorry, try again."
+      puts "Sorry, try again.".yellow
     end
   end
 

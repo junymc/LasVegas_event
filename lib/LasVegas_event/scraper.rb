@@ -1,5 +1,5 @@
 class LasVegasEvent::Scraper
-
+  
   def self.scrape_events_list
 
      doc = Nokogiri::HTML(open("https://events.lasvegascalendars.com/"))
