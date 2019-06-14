@@ -34,7 +34,7 @@ class LasVegasEvent::CLI
 
       if input.to_i > 0 && input.to_i <= 99
           event = LasVegasEvent::Deal.all[input.to_i-1]
-          Scraper.get_url(event)
+          LasVegasEvent::Scraper.get_url(event)
             puts "************************************************************************************************"
             puts " #{event.name}".light_blue
             puts "#{event.date_time} - #{event.location}".cyan
