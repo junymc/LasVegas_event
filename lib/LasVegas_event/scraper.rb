@@ -13,16 +13,16 @@ class LasVegasEvent::Scraper
           events_description = timely.css("div.timely-description.timely-has-venue").text.gsub(/\s+/, " ")
 
           LasVegasEvent::Event.new(name, date_time, location, url, events_description)
+
        end
   end
 
   def self.get_url(event)
-
-      event_page = Nokogiri::HTML(open(event.url))
+  binding.pry
+      event_page = Nokogiri::HTML(open(@event.url))
       event_webpage = event_page.css("div.timely-event-details-container").css("div.timely-details timely-clearfix").attr("href")
       # event.event_webpage = event_webpage
-binding.pry
-      LasVegasEvent::Event.new(name, date_time, location, url, events_description, event_webpage)
+
   end
 
 end
