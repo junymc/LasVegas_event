@@ -1,5 +1,5 @@
 class LasVegasEvent::Scraper
-  
+
   def self.scrape_events_list
 
      doc = Nokogiri::HTML(open("https://events.lasvegascalendars.com/"))
@@ -12,7 +12,7 @@ class LasVegasEvent::Scraper
           url = timely.attr("href")
           events_description = timely.css("div.timely-description.timely-has-venue").text.gsub(/\s+/, " ")
 
-          LasVegasEvent::Deal.new(name, date_time, location, url, events_description)
+          LasVegasEvent::Event.new(name, date_time, location, url, events_description)
        end
   end
 

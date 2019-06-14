@@ -21,17 +21,17 @@ class LasVegasEvent::CLI
     puts "---------------------"
     puts "|Special events list|".yellow
     puts "---------------------"
-    LasVegasEvent::Deal.all.each.with_index(1) do |event, i|
+    LasVegasEvent::Event.all.each.with_index(1) do |event, i|
       puts "#{i}. #{event.name}".light_blue
     end
   end
 
   def event_website
     puts "Do you want to check out the event website? Type 1 for 'Yes' or 2 for 'No'".green
-    input = nil
-    if input.to_i = 1
+    input = gets.strip.downcase
+    if input.to_i == 1
       puts "#{event.event_webpage}".cyan
-    elsif input.to_i = 2
+    elsif input.to_i == 2
       puts "** Type 'list' to see all the list or select number again. Type 'exit' if you wish to exit. **".green
     else
       puts "Sorry, try again.".yellow
@@ -45,7 +45,7 @@ class LasVegasEvent::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= 99
-          event = LasVegasEvent::Deal.all[input.to_i-1]
+          event = LasVegasEvent::Event.all[input.to_i-1]
 
             puts "************************************************************************************************"
             puts " #{event.name}".light_blue

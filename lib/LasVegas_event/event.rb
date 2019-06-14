@@ -1,6 +1,6 @@
 #my objects
 
-class LasVegasEvent::Deal
+class LasVegasEvent::Event
 
   attr_accessor :name, :location, :date_time, :url, :events_description
   @@all =[]
