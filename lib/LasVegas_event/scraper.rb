@@ -18,13 +18,9 @@ class LasVegasEvent::Scraper
 
   def self.get_url(event)
   binding.pry
-    if Scraper.get_url(event) == nil
       event_page = Nokogiri::HTML(open(event.url))
       event_webpage = event_page.css("div.a").attr("href")
       event.event_webpage = event_webpage
-    else
-      Scraper.get_url(event)
-    end
   end
 
 end
