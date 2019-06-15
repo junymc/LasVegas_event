@@ -17,12 +17,11 @@ class LasVegasEvent::Scraper
        end
   end
 
-  def self.get_url(event)
-  binding.pry
-      event_page = Nokogiri::HTML(open(@event.url))
-      event_webpage = event_page.css("div.timely-event-details-container").css("div.timely-details timely-clearfix").attr("href")
-      # event.event_webpage = event_webpage
+  def self.get_event_page(event)
 
+      event_page = Nokogiri::HTML(open(event.url))
+      event_webpage = event_page.css("div a.timely-event-details-link").text
+      # event.event_webpage = event_webpage
   end
 
 end

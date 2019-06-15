@@ -32,8 +32,8 @@ class LasVegasEvent::CLI
     input = gets.strip.downcase
 
     if input == "y"
-      # @event = LasVegasEvent::Event.all
-      puts "#{@event.event_webpage}".cyan
+      LasVegasEvent::Scraper.get_event_page(event)
+      puts "#{event_webpage}".cyan
     elsif input == "n"
       puts "** Type 'list' to see all the list or select number again. Type 'exit' if you wish to exit. **".green
     else
@@ -48,13 +48,13 @@ class LasVegasEvent::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= 10
-          @event = LasVegasEvent::Event.all[input.to_i-1]
+          event = LasVegasEvent::Event.all[input.to_i-1]
 
             puts "************************************************************************************************"
-            puts " #{@event.name}".light_blue
-            puts "#{@event.date_time} - #{@event.location}".cyan
-            puts "#{@event.events_description}\n".yellow
-            puts "#{@event.url}\n".cyan
+            puts " #{event.name}".light_blue
+            puts "#{event.date_time} - #{event.location}".cyan
+            puts "#{event.events_description}\n".yellow
+            puts "#{event.url}\n".cyan
 
           event_website
 
@@ -72,7 +72,7 @@ class LasVegasEvent::CLI
 
   def goodbye
     input = nil
-    if input = "exit"
+    if input == "exit"
       puts "========================================="
       puts "Thank you for visiting us. See you again!".green
       puts "========================================="
