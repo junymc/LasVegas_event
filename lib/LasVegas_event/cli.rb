@@ -15,7 +15,7 @@ class LasVegasEvent::CLI
 
   def fetch_events
     LasVegasEvent::Scraper.scrape_events_list
-    # LasVegasEvent::Scraper.get_url(event)
+    # LasVegasEvent::Scraper.get_event_page(event)
   end
 
   def list_events
@@ -32,7 +32,7 @@ class LasVegasEvent::CLI
     input = gets.strip.downcase
 
     if input == "y"
-      LasVegasEvent::Scraper.get_event_page(event)
+      # LasVegasEvent::Scraper.get_event_page(event)
       puts "#{event_webpage}".cyan
     elsif input == "n"
       puts "** Type 'list' to see all the list or select number again. Type 'exit' if you wish to exit. **".green
