@@ -15,7 +15,6 @@ class LasVegasEvent::CLI
 
   def fetch_events
     LasVegasEvent::Scraper.scrape_events_list
-    # LasVegasEvent::Scraper.get_event_page(event)
   end
 
   def list_events
@@ -28,16 +27,16 @@ class LasVegasEvent::CLI
   end
 
   def event_website
-    puts "Do you want to check out the event website? Type 'y' or 'n'".green
+    puts "** Do you want to check out the event website? Type 'y' or 'n' **".green
     input = gets.strip.downcase
 
     if input == "y"
-      # LasVegasEvent::Scraper.get_event_page(event)
+      event_webpage = LasVegasEvent::Scraper.get_event_page(event)
       puts "#{event_webpage}".cyan
     elsif input == "n"
       puts "** Type 'list' to see all the list or select number again. Type 'exit' if you wish to exit. **".green
     else
-      puts "Sorry, try again.".yellow
+      puts "Sorry, try again.".red
     end
   end
 
@@ -73,9 +72,9 @@ class LasVegasEvent::CLI
   def goodbye
     input = nil
     if input == "exit"
-      puts "========================================="
-      puts "Thank you for visiting us. See you again!".green
-      puts "========================================="
+      puts "==========================================="
+      puts " Thank you for visiting us. See you again!".green
+      puts "==========================================="
     end
   end
 
