@@ -8,9 +8,9 @@ class LasVegasEvent::CLI
   end
 
   def welcome
-    puts "===================================================================================="
-    puts "Welcome to Las Vegas Event Calendar where you can find the best events in Las Vegas!".green
-    puts "===================================================================================="
+    puts "======================================================================================"
+    puts " Welcome to Las Vegas Event Calendar where you can find the best events in Las Vegas! ".green
+    puts "======================================================================================"
   end
 
   def fetch_events
@@ -18,9 +18,9 @@ class LasVegasEvent::CLI
   end
 
   def list_events
-    puts "---------------------"
-    puts "|Special events list|".yellow
-    puts "---------------------"
+    puts " ----------------------------"
+    puts "| Top 10 Special Events List |".yellow
+    puts " ----------------------------"
     LasVegasEvent::Event.all.each.with_index(1) do |event, i|
       puts "#{i}. #{event.name}".light_blue
     end
@@ -50,7 +50,7 @@ class LasVegasEvent::CLI
       if input.to_i > 0 && input.to_i <= 10
           event = LasVegasEvent::Event.all[input.to_i-1]
 
-            puts "************************************************************************************************"
+            puts "*******************************************************************************************"
             puts " #{event.name}".light_blue
             puts "#{event.date_time} - #{event.location}".cyan
             puts "#{event.events_description}\n".yellow
@@ -59,9 +59,9 @@ class LasVegasEvent::CLI
           event_website(event)
 
       elsif input == "list"
-              list_events
+          list_events
       elsif input == "exit"
-        goodbye
+          goodbye
       else
         puts "The event can not be found.".red
         puts "---------------------------"
@@ -71,12 +71,9 @@ class LasVegasEvent::CLI
   end
 
   def goodbye
-    input = nil
-    if input == "exit"
       puts "==========================================="
-      puts " Thank you for visiting us. See you again!".green
+      puts " Thank you for visiting us. See you again! ".green
       puts "==========================================="
-    end
   end
 
 end
