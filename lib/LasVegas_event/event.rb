@@ -20,7 +20,7 @@ class LasVegasEvent::Event
   end
 
   def self.all
-    @@all
+    @@all.sort {|a, b| a.name <=> b.name }
   end
 
 end
