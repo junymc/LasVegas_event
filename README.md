@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Start the program by running the executable file ./bin/LasVegas_event, you will be greeted with a welcome message and it will show you all the current events that are available for purchase. You will be asked to pick one of the events that you want to know more about. Once you have viewed all the events list, type the number of the event that you are interested in, it will provides more detailed information about your event selection to include the price deal and different available dates. If you want to see more event information, you can type another number anytime. Typing 'exit' will exit out of the app.
+Start the program by running the executable file ./bin/run, you will be greeted with a welcome message and it will show you all the current events that are available for purchase. You will be asked to pick one of the events that you want to know more about. Once you have viewed all the events list, type the number of the event that you are interested in, it will provides more detailed information about your event selection to include the price deal and different available dates. If you want to see more event information, you can type another number anytime. Typing 'exit' will exit out of the app.
 
 ## Development
 
